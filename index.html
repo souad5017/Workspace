@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <section>
+        <div id="sidebar">
+            <div class="ajouterEmploye">
+                <h1 class="titer"><i class="fa-solid fa-user-friends"></i> Personnel non assigné</h1>
+                <button id="btnAjt"><i class="fa-solid fa-plus"></i> Ajouter un employé</button>
+            </div>
+            <div class="modal" id="modals">
+                <div id="form">
+
+                    <h2>Ajouter un nouvel employé</h2>
+                    <div id="contenur">
+                        <div>
+                            <label for="nom" >Nom</label>
+                            <input id="nom" type="text" placeholder="Entrez le nom">
+
+                        </div>
+                        <div>
+                            <label for="rôle">Rôle</label>
+                            <select id="role">
+                                <option>Autres rôles</option>
+                                <option>Réceptionniste</option>
+                                <option>Technicien IT</option>
+                                <option>Agent de sécurité</option>
+                                <option>Manager</option>
+                                <option>Personnel de nettoyage</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Email">Email</label>
+                            <input id="email" type="email" placeholder="email@gmail.com">
+                        </div>
+                        <div>
+                            <label for="tele">Téléphone</label>
+                            <input id="tele" type="number" placeholder="+212 0000-000">
+                        </div>
+                        <div>
+                            <label for="Photo">Photo</label>
+                            <input type="file" id="photo">
+                            <div class="img">
+                                <img alt="Photo" class="photoPersonel">
+                            </div>
+                        </div>
+                        <div class="experiences">
+                            <label for="experiences">Experiences:</label>
+                            <div>
+                                <div>
+                                    <label for="company">Company</label>
+                                    <input id="company" type="text" placeholder="Enter company">
+                                </div>
+                                <div>
+                                    <label for="role">Role</label>
+                                    <input id="experienceRole" type="text" placeholder="Enter rôle">
+                                </div>
+                                <div>
+                                    <label for="from">From</label>
+                                    <input id="from" type="date">
+                                </div>
+                                <div>
+                                    <label for="to">To</label>
+                                    <input id="to" type="date">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn-annuler" id="annuler">Annuler</button>
+                        <button class="btn-Enregisstrer" id="Enregisstrer">Enregisstrer</button>
+                    </div>
+
+                </div>
+            </div>
+            <div id="employés"></div>
+
+        </div>
+        <div id="Plan">
+
+            <h1>Plan d'étage - Gestion du personnel</h1>
+            <div class="salles">
+                <div id="conference">
+                    <div class="contenu">
+                        <h2>Salle de conférence</h2>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/55b5ba05-fbb1-4e0c-a31c-3c7839262547.jpg" alt="">
+                </div>
+                <div id="reception">
+                    <div class="contenu">
+                        <h2>Réception</h2>
+                        <div id=""></div>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/063bd063-f55e-401f-86a4-1341b5252b46.jpg" alt="">
+                </div>
+                <div id="serveurs">
+                    <div class="contenu">
+                        <h2>Salle des serveurs</h2>
+                        <div id=""></div>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/7ec4f500-8942-4f2a-bc3c-788d361d967f.jpg" alt="">
+                </div>
+                <div id="securite">
+                    <div class="contenu">
+                        <h2>Salle de sécurité</h2>
+                        <div id=""></div>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/4762281c-e634-41d1-9ba2-88b4d7cedc9b.jpg" alt="">
+                </div>
+                <div id="personnel">
+                    <div class="contenu">
+                        <h2>Salle du personnel</h2>
+                        <div id=""></div>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/salle-du-persones.jpeg" alt="">
+                </div>
+                <div id="archives">
+                    <div class="contenu">
+                        <h2>Salle d'archives</h2>
+                        <div id=""></div>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Assigner un employé
+                        </button>
+                    </div>
+                    <img src="./img/2d6e9fe5-8a68-4dc2-9e7e-9c59a315a3d5.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
