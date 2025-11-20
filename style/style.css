@@ -17,19 +17,30 @@ section {
     width: 390px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     color: #fff;
     border-right:1px solid rgba(0, 0, 0, 0.445) ;
 }
 .ajouterEmploye{
     display: flex;
     flex-direction: column;
+
     gap: 10px;
     color: #fff;
     background-color:#2f3a408f;
     padding: 1.5rem;
     width:310px;
 }
+.Exp{
+    display: flex;
+    justify-content: space-between;
+}
+.Exp>button{
+    background-color: rgb(44, 202, 44);
+}
+.Exp>button:active{
+    background-color: green;
+}
+
 .ajouterEmploye>button:hover{
     background-color: rgb(202, 206, 202);
 }
@@ -122,9 +133,13 @@ label {
 }
 
 /* Experiences */
-.experiences>div {
+.experiences{
+
+}
+
+.information {
     margin-top: 5px;
-    background-color: #cfcdcdb4;
+    background-color: #e8e7e7b4;
     padding:5px;
     display: flex;
     flex-direction: column;
@@ -266,4 +281,14 @@ label {
 }
 .contenu>button:active{
     color: rgb(2, 51, 2);
+}
+
+#employés{
+    padding: 10px;
+    background-color: #0000001a;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
 }
