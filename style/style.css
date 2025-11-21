@@ -34,18 +34,22 @@ section {
     display: flex;
     justify-content: space-between;
 }
-.Exp>button{
+.btn-ajoute{
     background-color: rgb(44, 202, 44);
 }
-.Exp>button:active{
+.btn-ajoute:active{
     background-color: green;
 }
 
+.btn-delete{
+    color: red;
+}
+
 .ajouterEmploye>button:hover{
-    background-color: rgb(202, 206, 202);
+   color: rgb(44, 202, 44);
 }
 .ajouterEmploye>button:active{
-    background-color: rgb(151, 151, 151);
+    color: green;
 }
 .titer {
     font-size: 20px;
@@ -133,9 +137,6 @@ label {
 }
 
 /* Experiences */
-.experiences{
-
-}
 
 .information {
     margin-top: 5px;
@@ -214,10 +215,10 @@ label {
     box-shadow: 0 4px 12px #0005;
     transition: transform .2s, box-shadow .2s;
 }
-#reception,
-#serveurs,
-#securite ,
-#archives{
+#salleReception,
+#salleServeurs,
+#salleSecurite ,
+#salleArchives{
     position: relative;
     border-radius: 15px;
     overflow: hidden;        /*  permet le scroll vertical si besoin */
@@ -250,7 +251,7 @@ label {
 }
 
 /* images */
-.salles > div img {
+.salles > div >img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -292,3 +293,97 @@ label {
     flex-direction: column;
     gap: 10px
 }
+
+.popupAssign {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    font-family: "Inter";
+
+}
+
+.popupAssign .box {
+    display: flex;
+    flex-direction: column;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    width:400px;
+    gap: 1rem;
+}
+
+.assignItem {
+    margin-left: 1rem;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding:5px 10px;
+    margin:5px 0;
+    background:#f0f0f0;
+    border-radius:6px;
+}
+
+.assignBtn {
+    background:green;
+    color:white;
+    border:none;
+    padding:2px 8px;
+    cursor:pointer;
+    border-radius:5px;
+    height: 30px;
+}
+
+.closeBtn{
+    border: none;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.usrPhoto{
+    background-color: #4746461e;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+
+.workerInZone{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid #222222;
+    background-color: #fff;
+    border-radius: 15px;
+    margin:0 2rem;
+    gap: 5px;
+
+}
+.workerInZone>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usrPhoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4746461e;
+    object-fit: cover;  
+   
+}
+.removeBtn{
+    color: red;
+    background-color: #0000;
+    font-size: 20px;
+    border: none;
+    margin-right:1rem ;
+}
+
+
