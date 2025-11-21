@@ -222,7 +222,7 @@ label {
     position: relative;
     border-radius: 15px;
     overflow: hidden;        /*  permet le scroll vertical si besoin */
-    animation: glow 1s infinite alternate;
+
 }
 
 /* ANIMATION */
@@ -261,7 +261,7 @@ label {
     left: 0;
 }
 
-.contenu {
+.contenus {
     display: flex;
     flex-direction:column;
     justify-content: space-between;
@@ -270,17 +270,17 @@ label {
     height: 100%;
 }
 
-.contenu>button{
+.contenus>button{
  padding: 10px;
  border: none;
  cursor: pointer;
  font-size: 15px;
 }
 
-.contenu>button:hover{
+.contenus>button:hover{
     color: rgb(9, 185, 9);
 }
-.contenu>button:active{
+.contenus>button:active{
     color: rgb(2, 51, 2);
 }
 
@@ -427,3 +427,4 @@ label {
     border-radius: 6px;
     cursor: pointer;
 }
+

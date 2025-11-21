@@ -138,6 +138,8 @@ enregisstrer.addEventListener("click", () => {
         storedData.push(newUser);
 
         renderWorkers();
+        stopAnimationIfEmpty();
+
 
 
         modals.style.display = "none";
@@ -351,16 +353,21 @@ function assignEmployeeToZone(emp, zoneId) {
             <button class="removeBtn"><i class="fa-solid fa-xmark"></i></button>
         </div>
     `;
-
+    elem.addEventListener("click", () => {
+        showEmployeeInfo(emp);
+    });
 
     elem.querySelector(".removeBtn").addEventListener("click", (e) => {
         e.stopPropagation();
         emp.zone = null;
         elem.remove();
         renderWorkers();
+        stopAnimationIfEmpty();
+
     });
 
     zoneDiv.appendChild(elem);
+    stopAnimationIfEmpty();
 }
 
 buttons.conference.addEventListener("click", () => openAssignPopup("conference"));
@@ -381,7 +388,7 @@ function showEmployeeInfo(emp) {
         <p><strong>Rôle :</strong> ${emp.role}</p>
         <p><strong>Email :</strong> ${emp.email}</p>
         <p><strong>Téléphone :</strong> ${emp.phone}</p>
-        <p><strong>Entreprise :</strong> ${emp.}</p>
+        <p><strong>Entreprise :</strong> ${emp.company}</p>
         <p><strong>Début :</strong> ${emp.startDate}</p>
         <p><strong>Fin :</strong> ${emp.endDate}</p>
         <p><strong>Zone actuelle :</strong> ${emp.zone || "Aucune"}</p>
@@ -397,29 +404,25 @@ function showEmployeeInfo(emp) {
     };
 }
 
-function updateZoneHighlight() {
-    const highlightZones = ["reception", "serveurs", "securite", "archives"];
+function stopAnimationIfEmpty() {
+    const salles = [
+        { salle: document.getElementById("salleReception"), contenu: document.getElementById("reception") },
+        { salle: document.getElementById("salleServeurs"), contenu: document.getElementById("serveurs") },
+        { salle: document.getElementById("salleSecurite"), contenu: document.getElementById("securite") },
+        { salle: document.getElementById("salleArchives"), contenu: document.getElementById("archives") }
+    ];
 
-    document.querySelectorAll(".zone").forEach(zone => {
-        const roomName = zone.dataset.zone;
+    console.log(salles[0].contenu)
 
-        if (!highlightZones.includes(roomName)) {
-            zone.classList.remove("zone-empty");
-            return;
-        }
+    salles.forEach(obj => {
+        if (obj.contenu.innerHTML.trim() !== "") {
 
-        const assignedDiv = zone.querySelector(".assigned-workers");
-        const assignedWorkers = assignedDiv ? assignedDiv.querySelectorAll(".room-worker").length : 0;
-
-        if (assignedWorkers === 0) {
-            zone.classList.add("zone-empty");
+            obj.salle.style.animation = "none";
         } else {
-            zone.classList.remove("zone-empty");
+            obj.salle.style.animation = "glow 1s infinite alternate";
         }
     });
 }
-
-
 
 
 
