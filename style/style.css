@@ -428,3 +428,12 @@ label {
     cursor: pointer;
 }
 
+
+
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 3px;
+    display: block;
+    height: 16px;
+}

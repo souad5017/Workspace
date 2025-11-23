@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Test Regex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 3px;
+            display: block;
+            height: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            border: none;
+            background: #3498db;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Formulaire</h2>
+
+        <form id="testForm">
+            <label for="name">Nom</label>
+            <input type="text" id="name" placeholder="Votre nom">
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="email@example.com">
+            <span class="error" id="emailError"></span>
+
+            <label for="phone">Numéro de téléphone</label>
+            <input type="text" id="phone" placeholder="+212 6 00 00 00 00">
+            <span class="error" id="phoneError"></span>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+<script>
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const phoneError = document.getElementById("phoneError");
+
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(?:\+212|0)([ \-]?\d){9}$/;
+
+   // Méthode 1: vérification en temps réel
+    nameInput.addEventListener("input", () => {
+        if (!nameRegex.test(nameInput.value)) {
+            nameError.textContent = "Nom invalide.";
+        } else {
+            nameError.textContent = "";
+        }
+    });
+
+    emailInput.addEventListener("input", () => {
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.textContent = "Email invalide.";
+        } else {
+            emailError.textContent = "";
+        }
+    });
+
+    phoneInput.addEventListener("input", () => {
+        if (!phoneRegex.test(phoneInput.value)) {
+            phoneError.textContent = "Numéro invalide.";
+        } else {
+            phoneError.textContent = "";
+        }
+    });
+
+    // Méthode 2: vérification après le submit du formulaire
+    document.getElementById("testForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (!nameRegex.test(nameInput.value)) {
+            nameError.textContent = "Nom invalide.";
+        }
+
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.textContent = "Email invalide.";
+        }
+
+        if (!phoneRegex.test(phoneInput.value)) {
+            phoneError.textContent = "Numéro invalide.";
+        }
+    });
+
+</script>
+
+</body>
+</html>

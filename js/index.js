@@ -36,6 +36,7 @@ const newUser = {};
 let experiences = 0;
 
 btnAjt.addEventListener("click", () => {
+    verification ();
     // clear form
     nom.value = "";
     role.value = "";
@@ -70,19 +71,19 @@ btnAjoute.addEventListener("click", () => {
                             </div>
                             <div class="information">
                                    <div>
-                                    <label for="company">Company</label>
+                                    <label>Company</label>
                                     <input id="company${experiences}" type="text" placeholder="Enter company">
                                 </div>
                                 <div>
-                                    <label for="role">Role</label>
+                                    <label>Role</label>
                                     <input id="experienceRole${experiences}" type="text" placeholder="Enter rôle">
                                 </div>
                                 <div>
-                                    <label for="from">From</label>
+                                    <label >From</label>
                                     <input id="from${experiences}" type="date">
                                 </div>
                                 <div>
-                                    <label for="to">To</label>
+                                    <label >To</label>
                                     <input id="to${experiences}" type="date">
                                 </div>
 
@@ -98,12 +99,69 @@ btnAjoute.addEventListener("click", () => {
 
 });
 
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const phoneError = document.getElementById("phoneError");
 
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(?:\+212|0)([ \-]?\d){9}$/;
+
+    // vérification
+
+    function verification () {
+    nom.addEventListener("input", () => {
+        if (!nameRegex.test(nom.value)) {
+            nameError.textContent = "Nom invalide.";
+        } else {
+            nameError.textContent = "";
+        }
+    });
+
+    email.addEventListener("input", () => {
+        if (!emailRegex.test(email.value)) {
+            emailError.textContent = "Email invalide.";
+        } else {
+            emailError.textContent = "";
+        }
+    });
+
+    tele.addEventListener("input", () => {
+        if (!phoneRegex.test(tele.value)) {
+            phoneError.textContent = "Numéro invalide.";
+        } else {
+            phoneError.textContent = "";
+        }
+    });
+
+    };
+    // function validation  () {};
 enregisstrer.addEventListener("click", () => {
-
+    
     if (nom.value.trim() === "" || role.value.trim() === "" || email.value.trim() === "") {
         alert("Veuillez remplir le nom, le rôle et l'adresse e-mail");
-    } else {
+        return;
+    }if (nameError.textContent !== "" || emailError.textContent !== "" || phoneError.textContent !== "") {
+        alert("Certains champs sont invalides. Vérifiez les erreurs.");
+        return;
+    }   
+     let invalidDate = false;
+    const allExperiences = document.querySelectorAll(".experiences");
+
+    allExperiences.forEach(exp => {
+        const from = exp.querySelector('input[id^="from"]');
+        const to = exp.querySelector('input[id^="to"]');
+
+        if (from.value && to.value && from.value > to.value) {
+            invalidDate = true;
+        }
+    });
+
+    if (invalidDate) {
+        alert("La date de début doit être avant la date de fin.");
+        return;
+    }
+    else {
         const exps = []
 
         for (let i = 1; i <= experiences; i++) {
@@ -381,6 +439,24 @@ function showEmployeeInfo(emp) {
     const formInfo = document.getElementById("formInfo");
     const infoBox = document.getElementById("employeeInfo");
 
+    let expHTML = "";
+
+    if (emp.experiences && emp.experiences.length > 0) {
+        emp.experiences.forEach((exp, index) => {
+            expHTML += `
+                <div class="expItem">
+                    <p><strong>Expérience ${index + 1}</strong></p>
+                    <p>Entreprise : ${exp.company || "—"}</p>
+                    <p>Rôle : ${exp.role || "—"}</p>
+                    <p>De : ${exp.from || "—"} → ${exp.to || "—"}</p>
+                    <hr>
+                </div>
+            `;
+        });
+    } else {
+        expHTML = "<p>Aucune expérience enregistrée.</p>";
+    }
+    
     infoBox.innerHTML = `
         <h3>${emp.name}</h3>
         <img src="${emp.photo || '../img/istockphoto-1495088043-612x612.jpg'}" class="infoPhoto">
@@ -388,14 +464,14 @@ function showEmployeeInfo(emp) {
         <p><strong>Rôle :</strong> ${emp.role}</p>
         <p><strong>Email :</strong> ${emp.email}</p>
         <p><strong>Téléphone :</strong> ${emp.phone}</p>
-        <p><strong>Entreprise :</strong> ${emp.company}</p>
-        <p><strong>Début :</strong> ${emp.startDate}</p>
-        <p><strong>Fin :</strong> ${emp.endDate}</p>
+
+        <h4>Expériences :</h4>
+        ${expHTML}
+
         <p><strong>Zone actuelle :</strong> ${emp.zone || "Aucune"}</p>
 
         <button id="closeInfo">Fermer</button>
     `;
-
 
     formInfo.style.display = "flex";
 
@@ -403,6 +479,7 @@ function showEmployeeInfo(emp) {
         formInfo.style.display = "none";
     };
 }
+
 
 function stopAnimationIfEmpty() {
     const salles = [

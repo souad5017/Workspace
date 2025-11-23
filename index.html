@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -24,12 +24,13 @@
                     <h2>Ajouter un nouvel employé</h2>
                     <div id="contenur">
                         <div>
-                            <label for="nom">Nom</label>
+                            <label >Nom</label>
                             <input id="nom" type="text" placeholder="Entrez le nom">
+                            <span class="error" id="nameError"></span>
 
                         </div>
                         <div>
-                            <label for="rôle">Rôle</label>
+                            <label>Rôle</label>
                             <select id="role">
                                 <option>Autres rôles</option>
                                 <option>Réceptionniste</option>
@@ -40,23 +41,25 @@
                             </select>
                         </div>
                         <div>
-                            <label for="Email">Email</label>
+                            <label >Email</label>
                             <input id="email" type="email" placeholder="email@gmail.com">
+                            <span class="error" id="emailError"></span>
                         </div>
                         <div>
-                            <label for="tele">Téléphone</label>
+                            <label>Téléphone</label>
                             <input id="tele" type="number" placeholder="+212 0000-000">
+                            <span class="error" id="phoneError"></span>
                         </div>
                         <div>
-                            <label for="Photo">Photo</label>
+                            <label>Photo</label>
                             <input type="file" id="photo">
                             <div class="img">
-                                <img alt="Photo" class="photoPersonel">
+                                <img src="" alt="Photo" class="photoPersonel">
                             </div>
                         </div>
                         <div class="addExperiences">
                             <div class="Exp">
-                                <label for="experiences">Experiences :</label>
+                                <label>Experiences :</label>
                                 <button class="btn-ajoute"><i class="fa-solid fa-plus"></i></button>
                             </div>
 
