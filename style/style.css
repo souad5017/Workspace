@@ -14,43 +14,49 @@ section {
 
 /* Sidebar */
 #sidebar {
-    width: 390px;
+    width: 310px;
     display: flex;
     flex-direction: column;
     color: #fff;
-    border-right:1px solid rgba(0, 0, 0, 0.445) ;
+    border-right: 1px solid rgba(0, 0, 0, 0.445);
 }
-.ajouterEmploye{
+
+.ajouterEmploye {
     display: flex;
     flex-direction: column;
 
     gap: 10px;
     color: #fff;
-    background-color:#2f3a408f;
+    background-color: #2f3a408f;
     padding: 1.5rem;
-    width:310px;
+    width: 310px;
 }
-.Exp{
+
+.Exp {
     display: flex;
     justify-content: space-between;
 }
-.btn-ajoute{
+
+.btn-ajoute {
     background-color: rgb(44, 202, 44);
 }
-.btn-ajoute:active{
+
+.btn-ajoute:active {
     background-color: green;
 }
 
-.btn-delete{
+.btn-delete {
     color: red;
 }
 
-.ajouterEmploye>button:hover{
-   color: rgb(44, 202, 44);
+.ajouterEmploye>button {
+    color: rgb(44, 202, 44);
 }
-.ajouterEmploye>button:active{
+
+.ajouterEmploye>button:active {
     color: green;
 }
+
 .titer {
     font-size: 20px;
     margin-bottom: 10px;
@@ -66,7 +72,7 @@ section {
 
 /* Modal */
 #modals {
-    display:none;
+    display: none;
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -88,7 +94,7 @@ section {
     padding: 1rem;
     width: 380px;
     max-height: 80vh;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 
@@ -141,7 +147,7 @@ label {
 .information {
     margin-top: 5px;
     background-color: #e8e7e7b4;
-    padding:5px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -168,6 +174,7 @@ label {
     color: #fff;
 
 }
+
 .btn-Enregisstrer {
     background-color: rgb(44, 202, 44);
 }
@@ -175,11 +182,13 @@ label {
 .btn-annuler {
     background-color: rgb(235, 68, 68);
 }
-.btn-Enregisstrer:active{
+
+.btn-Enregisstrer:active {
     background-color: green;
 }
+
 .btn-annuler:active {
-    background-color:rgb(157, 2, 2) ;
+    background-color: rgb(157, 2, 2);
 }
 
 /* Plan d'étage */
@@ -196,7 +205,7 @@ label {
     text-align: center;
     border-bottom: 2px solid;
     padding: 2rem;
-    color: #2F3A40; 
+    color: #2F3A40;
 }
 
 .salles {
@@ -206,22 +215,24 @@ label {
 }
 
 /* Carte de salle */
-.salles > div {
+.salles>div {
     position: relative;
-    background: #2c2d2f;              
+    background: #2c2d2f;
     border-radius: 15px;
     overflow: hidden;
     height: 230px;
     box-shadow: 0 4px 12px #0005;
     transition: transform .2s, box-shadow .2s;
 }
+
 #salleReception,
 #salleServeurs,
-#salleSecurite ,
-#salleArchives{
+#salleSecurite,
+#salleArchives {
     position: relative;
     border-radius: 15px;
-    overflow: hidden;        /*  permet le scroll vertical si besoin */
+    overflow: hidden;
+    /*  permet le scroll vertical si besoin */
 
 }
 
@@ -231,6 +242,7 @@ label {
         box-shadow: 0 0 0px #fa2836;
         border: 1.5px solid #f8636d;
     }
+
     to {
         box-shadow: 0 0 15px #fb2e3c;
         border: 1.5px solid #fc5a65;
@@ -238,12 +250,12 @@ label {
 }
 
 
-.salles > div:hover {
+.salles>div:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 18px #0007;
 }
 
-.salles > div h2 {
+.salles>div h2 {
     margin: 10px;
     font-size: 18px;
     font-weight: 600;
@@ -251,11 +263,11 @@ label {
 }
 
 /* images */
-.salles > div >img {
+.salles>div>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.75;                
+    opacity: 0.75;
     position: absolute;
     top: 0;
     left: 0;
@@ -263,45 +275,50 @@ label {
 
 .contenus {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-between;
     position: relative;
     z-index: 2;
     height: 100%;
 }
 
-.contenus>button{
- padding: 10px;
- border: none;
- cursor: pointer;
- font-size: 15px;
-}
-
-.contenus>button:hover{
+.contenus>button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
     color: rgb(9, 185, 9);
 }
-.contenus>button:active{
-    color: rgb(2, 51, 2);
+
+.contenus>button:active {
+    color: rgb(4, 104, 4);
 }
 
-#employés{
+.contenus>div {
+    overflow: auto;
+}
+
+#employés {
     padding: 10px;
     background-color: #0000001a;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
 }
 
 .popupAssign {
     position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.6);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
     font-family: "Inter";
 
 }
@@ -309,42 +326,43 @@ label {
 .popupAssign .box {
     display: flex;
     flex-direction: column;
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    width:400px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
     gap: 1rem;
 }
 
 .assignItem {
     margin-left: 1rem;
-    display:flex;
-    justify-content:space-between;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding:5px 10px;
-    margin:5px 0;
-    background:#f0f0f0;
-    border-radius:6px;
+    padding: 5px 10px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    border-radius: 6px;
 }
 
 .assignBtn {
-    background:green;
-    color:white;
-    border:none;
-    padding:2px 8px;
-    cursor:pointer;
-    border-radius:5px;
+    background: green;
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 5px;
     height: 30px;
 }
 
-.closeBtn{
+.closeBtn {
     border: none;
     padding: 8px 12px;
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
 }
-.usrPhoto{
+
+.usrPhoto {
     background-color: #4746461e;
     width: 50px;
     height: 50px;
@@ -352,19 +370,20 @@ label {
 
 }
 
-.workerInZone{
+.workerInZone {
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border:1px solid #222222;
+    border: 1px solid #222222;
     background-color: #fff;
     border-radius: 15px;
-    margin:0 2rem;
+    margin: 0 2rem;
     gap: 5px;
 
 }
-.workerInZone>div{
+
+.workerInZone>div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -375,19 +394,21 @@ label {
     height: 50px;
     border-radius: 50%;
     background-color: #4746461e;
-    object-fit: cover;  
-   
+    object-fit: cover;
+
 }
-.removeBtn{
+
+.removeBtn {
     color: red;
     background-color: #0000;
     font-size: 20px;
     border: none;
-    margin-right:1rem ;
+    margin-right: 1rem;
     cursor: pointer;
 }
-#formInfo{
-    display:none;
+
+#formInfo {
+    display: none;
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -398,30 +419,32 @@ label {
     background: #0000004f;
     z-index: 1000;
 }
-#employeeInfo{
-    display:flex;
-    position:absolute;
-    width:300px;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.3);
+
+#employeeInfo {
+    display: flex;
+    position: absolute;
+    width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-#employeeInfo>img{
+#employeeInfo>img {
     width: 120px;
     border-radius: 50%;
 }
-#employeeInfo>button{
+
+#employeeInfo>button {
     color: red;
     background-color: #0000;
     font-size: 20px;
     border: none;
-    margin-right:1rem ;
+    margin-right: 1rem;
     padding: 8px 12px;
     font-weight: 600;
     border-radius: 6px;
@@ -437,3 +460,82 @@ label {
     display: block;
     height: 16px;
 }
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    #sidebar {
+        max-width: 310px;
+    }
+
+    .ajouterEmploye {
+        width: 250px;
+    }
+
+    .salles {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        overflow: scroll;
+    }
+
+    #employés {
+        overflow: scroll;
+    }
+
+    section h1 {
+        font-size: 25px;
+    }
+
+}
+
+/* Tablette*/
+@media (min-width: 768px) and (max-width: 1023px) {
+    #sidebar {
+        max-width: 310px;
+
+    }
+
+    .ajouterEmploye {
+        width: 290px;
+    }
+
+    .salles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    #employés {
+        overflow: scroll;
+    }
+
+    section h1 {
+        font-size: 25px;
+    }
+}
+
+
+/* Petit écran ordinateur */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .salles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    #employés {
+        overflow: scroll;
+    }
+}
+
+/* Mobile paysage */
+@media (min-width: 768px) and (max-width: 1023px) {}
+
+/* Tablette paysage */
+@media (min-width: 1024px) and (max-width: 1279px) {}
